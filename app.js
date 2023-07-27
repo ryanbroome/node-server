@@ -19,6 +19,7 @@ app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 
 //? route handler's for GET req's TO ("/mean", "/median", "/mode") ? nums=1,2,3
+
 app.get("/mean", function (req, res, next) {
   try {
     // get query string nums value from request object
@@ -29,7 +30,6 @@ app.get("/mean", function (req, res, next) {
     }
     // split query string at "," attempt to change all array elements to numbers and returns array full of Number's or  NaN's
     numsArray = strToNums(numStr);
-
     // if array contains non Number  elements call the "next" error handler with a new custom error
     if (allNumbers(numsArray)) {
       const e = new ExpressError("Must use numbers only", 400);
@@ -134,6 +134,7 @@ app.use(function (err, req, res, next) {
 });
 
 app.listen(3000, function () {
-  console.log("listening at port 3000");
+  console.log("It's the question that drives us, at port 3000");
 });
+
 // ------------------------------------------------ +++ APP - CALCULATOR +++ --------------------------------------------------------------
