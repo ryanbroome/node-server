@@ -32,6 +32,7 @@ app.get("/mean", function (req, res, next) {
     numsArray = strToNums(numStr);
     // if array contains non Number  elements call the "next" error handler with a new custom error
     if (allNumbers(numsArray)) {
+      //TODO IS THIS ERROR HANDLE NEEDED OR DUPLICATION
       const e = new ExpressError("Must use numbers only", 400);
       next(e);
     } else {
